@@ -1,6 +1,6 @@
 import React from 'react';
 
-import GoogleMapReact from 'google-map-react';
+import { GoogleMapReact } from 'google-map-react';
 
 import iss from './iss.png';
 
@@ -13,6 +13,7 @@ function Map({ center, zoom }) {
         bootstrapURLKeys={{ key: apiKey }}
         defaultcenter={center}
         defaultZoom={zoom}
+        yesIWantToUseGoogleMapApiInternals
       >
         <img src={iss} alt="ISS icon" className="iss-icon" />
       </googleMapReact>
