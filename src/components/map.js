@@ -1,5 +1,6 @@
-import GoogleMapReact from 'google-map-react';
-import iss from './iss.png';
+import React from "react";
+import GoogleMapReact from "google-map-react";
+import iss from "./iss.png";
 
 const apiKey = process.env.REACT_APP_API_KEY;
 

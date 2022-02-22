@@ -1,8 +1,8 @@
-import './App.css';
-import Map from './components/map';
+import "./App.css";
+import Map from "./components/map";
 
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -15,13 +15,15 @@ function App() {
 
   const getLocation = async () => {
     setLoading(true);
-    const res = await axios.get('http://api.open-notify.org/iss-now.json');
-    const { longitude, latitude } = await res.data.iss_position;
-    console.log(res.data);
+    await axios.get("http://api.open-notify.org/iss-now.json").then((res) => {
+      const { longitude, latitude } = res.data.iss_position;
 
-    setLongitude(parseFloat(longitude));
-    setLatitude(parseFloat(latitude));
-    setLoading(false);
+      setTimeout(function () {
+        setLongitude(parseFloat(longitude));
+        setLatitude(parseFloat(latitude));
+        setLoading(false);
+      }, 2000);
+    });
   };
 
   return (
